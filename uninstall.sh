@@ -18,7 +18,7 @@ STATE="$HOME/.local/state/omarchy/current"
 
 SLUGS=(
   sakura-drift yugure-ember kitsune-amber komorebi-gold matcha-yuki
-  mizu-lagoon yozora-indigo fuji-lavender akihabara-neon
+  mizu-lagoon yozora-indigo fuji-lavender akihabara-neon nanairo
 )
 
 bold=$'\e[1m'; dim=$'\e[2m'; red=$'\e[31m'; grn=$'\e[32m'; ylw=$'\e[33m'; off=$'\e[0m'

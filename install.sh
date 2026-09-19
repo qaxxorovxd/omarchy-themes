@@ -21,7 +21,7 @@ MARKER_FILE=".kagerou"
 
 SLUGS=(
   sakura-drift yugure-ember kitsune-amber komorebi-gold matcha-yuki
-  mizu-lagoon yozora-indigo fuji-lavender akihabara-neon
+  mizu-lagoon yozora-indigo fuji-lavender akihabara-neon nanairo
 )
 
 bold=$'\e[1m'; dim=$'\e[2m'; red=$'\e[31m'; grn=$'\e[32m'; ylw=$'\e[33m'; off=$'\e[0m'
@@ -108,8 +108,11 @@ swatch() {
 }
 
 list_themes() {
-  printf '%s%s%s\n\n' "$bold" "Kagerou — 9 themes, $(( ${#SLUGS[@]} * 18 )) wallpapers" "$off"
-  local slug accent
+  local slug accent total=0
+  for slug in "${SLUGS[@]}"; do
+    total=$((total + $(count_backgrounds "$slug")))
+  done
+  printf '%s%s%s\n\n' "$bold" "Kagerou — ${#SLUGS[@]} themes, $total wallpapers" "$off"
   for slug in "${SLUGS[@]}"; do
     accent=$(accent_of "$slug")
     printf '  %s  %-20s %s%-9s%s %s%s backgrounds%s\n' \
@@ -212,6 +215,6 @@ else
   say ""
   say "  Apply one with:   ${bold}omarchy-theme-set $(theme_name "${selected[0]}")${off}"
   say "  Or open the menu: ${bold}Super + Ctrl + Shift + Space${off}"
-  say "  ${dim}All nine sit together at the end of the list, under 影.${off}"
+  say "  ${dim}All ten sit together at the end of the list, under 影.${off}"
   say ""
 fi
